@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Simulador de Arquitectura de Computadoras</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Quiz de Arquitectura de Computadoras</h1>
+        <p>Responde las siguientes preguntas de opción múltiple. Selecciona una opción por pregunta y haz clic en "Verificar Respuestas" para ver tu puntaje.</p>
+    </header>
+
+    <main class="container">
+        <form id="quiz-form">
+            <!-- Pregunta 1: CPU -->
+            <div class="question">
+                <h3>1. ¿Cuál es la función principal del Microprocesador (CPU)?</h3>
+                <label><input type="radio" name="q1" value="a"> Ejecutar instrucciones y procesar datos.</label><br>
+                <label><input type="radio" name="q1" value="b"> Almacenar datos temporales.</label><br>
+                <label><input type="radio" name="q1" value="c"> Conectar componentes del sistema.</label><br>
+                <label><input type="radio" name="q1" value="d"> Gestionar el arranque del sistema.</label>
+            </div>
+
+            <!-- Pregunta 2: Memoria -->
+            <div class="question">
+                <h3>2. ¿Qué tipo de memoria es volátil y se usa para acceso rápido de datos temporales?</h3>
+                <label><input type="radio" name="q2" value="a"> Memoria ROM.</label><br>
+                <label><input type="radio" name="q2" value="b"> Memoria Caché.</label><br>
+                <label><input type="radio" name="q2" value="c"> Memoria RAM.</label><br>
+                <label><input type="radio" name="q2" value="d"> Memoria Virtual.</label>
+            </div>
+
+            <!-- Pregunta 3: Buses -->
+            <div class="question">
+                <h3>3. ¿Qué son los buses en una computadora?</h3>
+                <label><input type="radio" name="q3" value="a"> Unidades de procesamiento de datos.</label><br>
+                <label><input type="radio" name="q3" value="b"> Canales de comunicación entre componentes.</label><br>
+                <label><input type="radio" name="q3" value="c"> Memorias de almacenamiento permanente.</label><br>
+                <label><input type="radio" name="q3" value="d"> Dispositivos de entrada y salida.</label>
+            </div>
+
+            <!-- Pregunta 4: Memoria Virtual -->
+            <div class="question">
+                <h3>4. ¿Qué permite la Memoria Virtual?</h3>
+                <label><input type="radio" name="q4" value="a"> Almacenar datos de forma permanente.</label><br>
+                <label><input type="radio" name="q4" value="b"> Ejecutar programas más grandes que la RAM física.</label><br>
+                <label><input type="radio" name="q4" value="c"> Conectar periféricos al sistema.</label><br>
+                <label><input type="radio" name="q4" value="d"> Procesar instrucciones a alta velocidad.</label>
+            </div>
+
+            <!-- Pregunta 5: Periféricos -->
+            <div class="question">
+                <h3>5. ¿Qué son los periféricos en una computadora?</h3>
+                <label><input type="radio" name="q5" value="a"> Componentes internos como el CPU.</label><br>
+                <label><input type="radio" name="q5" value="b"> Dispositivos externos como teclado y mouse.</label><br>
+                <label><input type="radio" name="q5" value="c"> Memorias de alta velocidad.</label><br>
+                <label><input type="radio" name="q5" value="d"> Canales de datos entre componentes.</label>
+            </div>
+
+            <button type="button" id="submit-btn" class="quiz-btn">Verificar Respuestas</button>
+        </form>
+
+        <div id="results" style="display: none;">
+            <h2>Resultados</h2>
+            <p id="score"></p>
+            <p id="feedback"></p>
+            <button class="quiz-btn" onclick="window.location.href='index.html'">Volver al Simulador</button>
+        </div>
+    </main>
+
+    <script>
+        const correctAnswers = {
+            q1: 'a', // CPU: Ejecutar instrucciones y procesar datos.
+            q2: 'c', // Memoria: RAM.
+            q3: 'b', // Buses: Canales de comunicación.
+            q4: 'b', // Memoria Virtual: Ejecutar programas más grandes.
+            q5: 'b'  // Periféricos: Dispositivos externos.
+        };
+
+        document.getElementById('submit-btn').addEventListener('click', function() {
+            let score = 0;
+            const form = document.getElementById('quiz-form');
+            const questions = form.querySelectorAll('.question');
+
+            questions.forEach((question, index) => {
+                const questionName = `q${index + 1}`;
+                const selected = form.querySelector(`input[name="${questionName}"]:checked`);
+                const labels = question.querySelectorAll('label');
+
+                if (selected) {
+                    if (selected.value === correctAnswers[questionName]) {
+                        score++;
+                        selected.parentElement.style.color = 'green';
+                    } else {
+                        selected.parentElement.style.color = 'red';
+                        // Resaltar la correcta
+                        labels.forEach(label => {
+                            if (label.querySelector('input').value === correctAnswers[questionName]) {
+                                label.style.color = 'green';
+                            }
+                        });
+                    }
+                } else {
+                    // Si no se seleccionó, marcar como incorrecto
+                    labels.forEach(label => {
+                        if (label.querySelector('input').value === correctAnswers[questionName]) {
+                            label.style.color = 'green';
+                        }
+                    });
+                }
+            });
+
+            // Ocultar formulario y mostrar resultados
+            form.style.display = 'none';
+            const results = document.getElementById('results');
+            results.style.display = 'block';
+
+            document.getElementById('score').textContent = `Puntaje: ${score}/5`;
+
+            let feedback = '';
+            if (score === 5) {
+                feedback = '¡Excelente! Sabés mucho de hardware.';
+            } else if (score === 4) {
+                feedback = 'Muy bien, casi perfecto.';
+            } else if (score === 3) {
+                feedback = 'Bueno, pero podés mejorar.';
+            } else {
+                feedback = 'Necesitás estudiar más sobre arquitectura de computadoras.';
+            }
+            document.getElementById('feedback').textContent = feedback;
+        });
+    </script>
+</body>
+</html>

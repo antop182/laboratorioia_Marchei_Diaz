@@ -53,10 +53,22 @@
             </div>
         </div>
 
+        <!-- Nuevo apartado: Video Podcast -->
+        <section class="video-section">
+            <h2>Apartado de Video Podcast</h2>
+            <p>Inserta el enlace de un video tipo podcast (por ejemplo, de YouTube) para complementarlo con tu aprendizaje. Pega el enlace completo y haz clic en "Cargar Video".</p>
+            <input type="text" id="video-url" placeholder="Ej: https://www.youtube.com/watch?v=VIDEO_ID" class="video-input">
+            <button id="load-video-btn" class="quiz-btn">Cargar Video</button>
+            <div id="video-container" style="display: none;">
+                <iframe id="video-iframe" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <p id="error-msg" style="color: red; display: none;">Enlace inválido. Asegúrate de que sea un enlace de YouTube.</p>
+        </section>
+
         <button class="quiz-btn" onclick="window.location.href='quiz.html'">Ir al Quiz</button>
     </main>
 
-    <!-- Modales -->
+    <!-- Modales (sin cambios) -->
     <div id="modal-org" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal-org')">&times;</span>
@@ -130,22 +142,49 @@
     </div>
 
     <script>
-        // Función para mostrar modal
+        // Funciones de modales (sin cambios)
         function showModal(modalId) {
             document.getElementById(modalId).style.display = 'block';
         }
 
-        // Función para cerrar modal
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = 'none';
         }
 
-        // Cerrar modal al hacer clic fuera
         window.onclick = function(event) {
             if (event.target.classList.contains('modal')) {
                 event.target.style.display = 'none';
             }
         };
+
+        // Nueva funcionalidad para el video
+        document.getElementById('load-video-btn').addEventListener('click', function() {
+            const url = document.getElementById('video-url').value.trim();
+            const errorMsg = document.getElementById('error-msg');
+            const videoContainer = document.getElementById('video-container');
+            const iframe = document.getElementById('video-iframe');
+
+            // Ocultar error y video inicialmente
+            errorMsg.style.display = 'none';
+            videoContainer.style.display = 'none';
+
+            // Extraer ID del video de YouTube
+            let videoId = null;
+            if (url.includes('youtube.com/watch?v=')) {
+                videoId = url.split('v=')[1].split('&')[0];
+            } else if (url.includes('youtu.be/')) {
+                videoId = url.split('youtu.be/')[1].split('?')[0];
+            }
+
+            if (videoId) {
+                // Cargar el video en el iframe
+                iframe.src = `https://www.youtube.com/embed/${videoId}`;
+                videoContainer.style.display = 'block';
+            } else {
+                // Mostrar error
+                errorMsg.style.display = 'block';
+            }
+        });
 
         // Mensaje en consola al cargar
         console.log("Simulador cargado correctamente ✅");

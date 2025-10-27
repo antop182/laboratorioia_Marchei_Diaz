@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Arquitectura de Computadoras</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Simulador de Arquitectura de Computadoras</h1>
+        <p>Explora los principales componentes de una computadora de manera interactiva. Haz clic en cada componente para aprender más sobre su función en el sistema.</p>
+    </header>
+
+    <main class="container">
+        <div class="grid">
+            <div class="card" onclick="showModal('modal-org')">
+                <div class="icon">🏗️</div>
+                <h3>Organización y Arquitectura</h3>
+            </div>
+            <div class="card" onclick="showModal('modal-cpu')">
+                <div class="icon">🖥️</div>
+                <h3>Microprocesador (CPU)</h3>
+            </div>
+            <div class="card" onclick="showModal('modal-ram')">
+                <div class="icon">💾</div>
+                <h3>Memoria RAM</h3>
+            </div>
+            <div class="card" onclick="showModal('modal-rom')">
+                <div class="icon">📀</div>
+                <h3>Memoria ROM</h3>
+            </div>
+            <div class="card" onclick="showModal('modal-cache')">
+                <div class="icon">⚡</div>
+                <h3>Memoria Caché</h3>
+            </div>
+            <div class="card" onclick="showModal('modal-virtual')">
+                <div class="icon">🌐</div>
+                <h3>Memoria Virtual</h3>
+            </div>
+            <div class="card" onclick="showModal('modal-buses')">
+                <div class="icon">🚦</div>
+                <h3>Buses</h3>
+            </div>
+            <div class="card" onclick="showModal('modal-boot')">
+                <div class="icon">🔄</div>
+                <h3>Sistema de Arranque</h3>
+            </div>
+            <div class="card" onclick="showModal('modal-perif')">
+                <div class="icon">🖱️</div>
+                <h3>Periféricos</h3>
+            </div>
+        </div>
+
+        <button class="quiz-btn" onclick="window.location.href='quiz.html'">Ir al Quiz</button>
+    </main>
+
+    <!-- Modales -->
+    <div id="modal-org" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-org')">&times;</span>
+            <h2>Organización y Arquitectura</h2>
+            <p>La organización y arquitectura de computadoras se refiere al diseño lógico y físico de los componentes. Incluye cómo se estructuran los datos, las instrucciones y los recursos para optimizar el rendimiento. Es fundamental para entender el funcionamiento interno de un sistema computacional.</p>
+        </div>
+    </div>
+
+    <div id="modal-cpu" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-cpu')">&times;</span>
+            <h2>Microprocesador (CPU)</h2>
+            <p>El CPU es el cerebro de la computadora, responsable de ejecutar instrucciones y procesar datos. Contiene unidades como ALU (aritmética) y control, y opera a altas velocidades para manejar tareas complejas.</p>
+        </div>
+    </div>
+
+    <div id="modal-ram" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-ram')">&times;</span>
+            <h2>Memoria RAM</h2>
+            <p>La RAM es una memoria volátil que almacena datos temporales para acceso rápido por el CPU. Es esencial para el multitasking, ya que permite cargar programas y datos en tiempo real.</p>
+        </div>
+    </div>
+
+    <div id="modal-rom" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-rom')">&times;</span>
+            <h2>Memoria ROM</h2>
+            <p>La ROM es una memoria no volátil que contiene instrucciones permanentes, como el firmware del sistema. Se utiliza para el arranque inicial y no se modifica durante el uso normal.</p>
+        </div>
+    </div>
+
+    <div id="modal-cache" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-cache')">&times;</span>
+            <h2>Memoria Caché</h2>
+            <p>La caché es una memoria de alta velocidad que almacena copias de datos frecuentemente usados. Reduce el tiempo de acceso al CPU, mejorando el rendimiento general del sistema.</p>
+        </div>
+    </div>
+
+    <div id="modal-virtual" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-virtual')">&times;</span>
+            <h2>Memoria Virtual</h2>
+            <p>La memoria virtual extiende la RAM usando el disco duro como respaldo. Permite ejecutar programas más grandes que la memoria física disponible, gestionando páginas de datos.</p>
+        </div>
+    </div>
+
+    <div id="modal-buses" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-buses')">&times;</span>
+            <h2>Buses</h2>
+            <p>Los buses son canales de comunicación que conectan componentes como CPU, memoria y periféricos. Transfieren datos, direcciones e instrucciones, determinando la velocidad del sistema.</p>
+        </div>
+    </div>
+
+    <div id="modal-boot" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-boot')">&times;</span>
+            <h2>Sistema de Arranque</h2>
+            <p>El sistema de arranque inicia la computadora cargando el sistema operativo desde la ROM o disco. Incluye procesos como POST y carga del kernel para preparar el hardware.</p>
+        </div>
+    </div>
+
+    <div id="modal-perif" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-perif')">&times;</span>
+            <h2>Periféricos</h2>
+            <p>Los periféricos son dispositivos externos como teclado, mouse, impresoras y discos. Se conectan vía puertos y permiten la interacción del usuario con la computadora.</p>
+        </div>
+    </div>
+
+    <section id="video-section">
+        <h2>Podcast</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/3ccs4R3grGE?si=usYst2OisxGz7yEL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+       
+        </div>
+    </section>
+
+    <script>
+        // Función para mostrar modal
+        function showModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        // Función para cerrar modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Cerrar modal al hacer clic fuera
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        };
+
+        // Mensaje en consola al cargar
+        console.log("Simulador cargado correctamente ✅");
+    </script>
+</body>
+</html>

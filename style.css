@@ -61,6 +61,7 @@ body {
     text-align: center;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    height: auto; /* por si acaso alguna regla previa fija altura */
 }
 
 .card:hover {
@@ -238,6 +239,7 @@ body {
 }
 
     }
+
 
 
 

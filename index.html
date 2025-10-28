@@ -25,7 +25,7 @@
             </div>
             <div class="card" onclick="showModal('modal-ram')">
                 <div class="icon">💾</div>
-                <h3>Memoria</h3>
+                <h3>Memorias RAM y ROM</h3>
             </div>
             <div class="card" onclick="showModal('modal-cache')">
                 <div class="icon">⚡</div>
@@ -78,7 +78,7 @@
     <div id="modal-ram" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal-ram')">&times;</span>
-            <h2>Memoria</h2>
+            <h2>Memorias RAM y ROM</h2>
             <p><b>Jerarquía de Memoria:</b> Organización escalonada por velocidad, capacidad y costo (Registros → Caché → RAM → Almacenamiento).<br>
 <b>Principio de Localidad:</b> Temporal (si se usa un dato, es probable que se use pronto) y Espacial (si se usa un dato, es probable que se usen los datos cercanos).<br>
 <b>RAM (Memoria de Acceso Aleatorio):</b> Volátil (pierde datos al apagar). Es el espacio de trabajo temporal del CPU. Tipos: DRAM (más lenta, necesita refresco) y SRAM (más rápida, usada en caché).<br>
@@ -91,7 +91,9 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal-cache')">&times;</span>
             <h2>Memoria Caché</h2>
-            <p>La caché es una memoria de alta velocidad que almacena copias de datos frecuentemente usados. Reduce el tiempo de acceso al CPU, mejorando el rendimiento general del sistema.</p>
+            <p>La caché es una memoria de alta velocidad que almacena copias de datos frecuentemente usados. Reduce el tiempo de acceso al CPU, mejorando el rendimiento general del sistema.<br>
+                Memoria SRAM de alta velocidad ubicada dentro o muy cerca del CPU. Su función es almacenar datos y comandos de la RAM más usados para reducir la latencia.<br>
+<b>Niveles de Caché:</b> L1 (más rápida, más pequeña, por núcleo), L2 y L3 (más lentas, más grandes, a veces compartidas).</p>
         </div>
     </div>
 

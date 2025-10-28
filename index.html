@@ -25,11 +25,7 @@
             </div>
             <div class="card" onclick="showModal('modal-ram')">
                 <div class="icon">💾</div>
-                <h3>Memoria RAM</h3>
-            </div>
-            <div class="card" onclick="showModal('modal-rom')">
-                <div class="icon">📀</div>
-                <h3>Memoria ROM</h3>
+                <h3>Memoria</h3>
             </div>
             <div class="card" onclick="showModal('modal-cache')">
                 <div class="icon">⚡</div>
@@ -82,18 +78,14 @@
     <div id="modal-ram" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal-ram')">&times;</span>
-            <h2>Memoria RAM</h2>
-            <p>La RAM es una memoria volátil que almacena datos temporales para acceso rápido por el CPU. Es esencial para el multitasking, ya que permite cargar programas y datos en tiempo real.</p>
+            <h2>Memoria</h2>
+            <p><b>Jerarquía de Memoria:</b> Organización escalonada por velocidad, capacidad y costo (Registros → Caché → RAM → Almacenamiento).<br>
+<b>Principio de Localidad:</b> Temporal (si se usa un dato, es probable que se use pronto) y Espacial (si se usa un dato, es probable que se usen los datos cercanos).<br>
+<b>RAM (Memoria de Acceso Aleatorio):</b> Volátil (pierde datos al apagar). Es el espacio de trabajo temporal del CPU. Tipos: DRAM (más lenta, necesita refresco) y SRAM (más rápida, usada en caché).<br>
+<b>ROM (Memoria de Solo Lectura):</b> No volátil. Contiene el firmware esencial (BIOS/UEFI) para el arranque e inicialización del sistema.</p>
         </div>
     </div>
 
-    <div id="modal-rom" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal-rom')">&times;</span>
-            <h2>Memoria ROM</h2>
-            <p>La ROM es una memoria no volátil que contiene instrucciones permanentes, como el firmware del sistema. Se utiliza para el arranque inicial y no se modifica durante el uso normal.</p>
-        </div>
-    </div>
 
     <div id="modal-cache" class="modal">
         <div class="modal-content">

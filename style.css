@@ -239,6 +239,14 @@ body {
 }
 
     }
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* centra verticalmente */
+    align-items: center; /* centra horizontalmente */
+    min-height: 100vh; /* ocupa toda la altura de la pantalla */
+}
+
 
 
 

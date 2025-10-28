@@ -20,7 +20,7 @@ body {
 .header {
     text-align: center;
     padding: 40px 20px;
-    background-color: #baffd3;
+    background-color: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 1200px;
@@ -249,6 +249,7 @@ body {
     align-items: center; /* centra horizontalmente */
     min-height: 100vh; /* ocupa toda la altura de la pantalla */
 }
+
 
 
 

@@ -250,6 +250,20 @@ body {
     min-height: 100vh; /* ocupa toda la altura de la pantalla */
 }
 
+body {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente */
+    height: 100vh;           /* Ocupa toda la altura visible */
+    margin: 0;
+    background-color: #f0f0f0; /* color de fondo opcional */
+  }
+
+  img {
+    max-width: 80%;   /* Evita que se salga de la pantalla */
+    height: auto;
+    border-radius: 10px; /* Bordes redondeados opcional */
+  }
 
 
 

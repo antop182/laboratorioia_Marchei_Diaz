@@ -37,6 +37,21 @@ body {
     color: #7f8c8d;
 }
 
+/* Ajustes responsive */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    .card h3 {
+        font-size: 1em;
+    }
+
+    #video-section iframe {
+        height: 200px;
+    }
+}
+
 /* Contenedor principal */
 .container {
     max-width: 1200px;
@@ -251,6 +266,7 @@ body {
     height: auto;
     border-radius: 10px; /* Bordes redondeados opcional */
   }
+
 
 
 
